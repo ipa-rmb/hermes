@@ -20,10 +20,10 @@
   <include file="$(find hermes_grasp_service)/ros/launch/grasp_service_server.launch"/>
 
   <!-- segmentation for shoe detection -->
-  <include file="$(find cob_object_categorization)/ros/launch/object_segmentation.launch"/>
+  <include file="$(find hermes_scenario)/ros/launch/cob_object_categorization/object_segmentation.launch"/>
 
   <!-- shoe detection -->
-  <include file="$(find cob_object_categorization)/ros/launch/object_categorization.launch"/>
+  <include file="$(find hermes_scenario)/ros/launch/cob_object_categorization/object_categorization.launch"/>
 
   <!-- arm planning + moveit -->
   <include file="$(find hermes_moveit_generated)/launch/hermes.launch"/>
