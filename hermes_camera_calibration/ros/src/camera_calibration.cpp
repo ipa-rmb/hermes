@@ -51,7 +51,7 @@ void CameraCalibration::inputCallback(const cob_object_detection_msgs::Detection
 			tf::StampedTransform transform_camera_optframe_to_link;
 			try
 			{
-				transform_listener_.lookupTransform(input_marker_detections_msg->header.frame_id, "/camera_link", input_marker_detections_msg->header.stamp, transform_camera_optframe_to_link);
+				transform_listener_.lookupTransform(input_marker_detections_msg->header.frame_id, "/cam3d_link", input_marker_detections_msg->header.stamp, transform_camera_optframe_to_link);
 			}
 			catch (tf::TransformException ex)
 			{
@@ -59,7 +59,7 @@ void CameraCalibration::inputCallback(const cob_object_detection_msgs::Detection
 				return;
 			}
 			tf::Transform marker_transform(base_orientation_, base_translation_);
-			transform_broadcaster_.sendTransform(tf::StampedTransform(marker_transform.inverse()*transform_camera_optframe_to_link, input_marker_detections_msg->header.stamp, parent_frame_for_camera_, "/camera_link"));
+			transform_broadcaster_.sendTransform(tf::StampedTransform(marker_transform.inverse()*transform_camera_optframe_to_link, input_marker_detections_msg->header.stamp, parent_frame_for_camera_, "/cam3d_link"));
 		}
 	}
 }
